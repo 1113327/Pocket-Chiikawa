@@ -1,0 +1,82 @@
+Java final project record
+
+serach keyword
+add main character in the game window and we can move it also move the map view
+-----------------------------------------------------------------------------
+5/4
+tumblr_inline_o47751nWfc1tmx71p_540.jag來源網址
+https://64.media.tumblr.com/087dbf5c8d44a3dba882aa5159f987b1/tumblr_inline_o47751nWfc1tmx71p_540.pnj
+
+創建package "Main"
+
+圖片載入有問題
+->新角色"load罵奔
+----------------------------------------------------------------------------
+5/5
+解決package編譯文件
+
+創建package "entity"
+
+繪製角色，使用steam "RPG Character Builder"
+
+圖片載入有問題
+->吃午餐
+
+發現VS Code應該以 Run java 來編譯並執行。
+切勿點擊Run
+
+圖片載入問題解決
+BufferedImage型態變數無法傳入draw(Graphics2D g2){}中的g2.drawImage();
+因drawImage的第一個parameter型態為Image。
+參考至 CSDN博客 "JAVA抛出异常：javax.imageio.ImageIO.read(Unknown Source)"
+https://blog.csdn.net/aiua81263/article/details/101919807
+
+意外發現角色的圖不一定要是16 x 16
+
+創建 package "tile"
+匯入地圖失敗
+
+發現專案中放置圖片的路徑不能隨意更名，遊戲會損壞
+-------------------------------------------------------------------------
+5/6
+修改圖源路徑以解決地圖與角色輸出問題
+
+角色已固定於視窗中央
+
+地圖已可根據主角的位置調整可見區域，但仍不能順暢運作
+
+將圖片放大為(3*2)倍
+
+請求GPT3.5製作jpgTo2DArray的工具
+使用線上查色工具獲取色號254
+網址:https://www.ginifab.com.tw/tools/colors/color_picker_from_image.php
+使用jpgTo2DArray/GenerateCollisionMap.java，讀取色號(254,0,0)的pixel設置為1。
+將轉換好的2DArray作為碰撞地圖資訊給專案使用。
+
+---------------------------------------------------------------------------
+5/7
+解決getobstacleMap() retrun 問題
+Stackoverflow 網址https://stackoverflow.com/questions/52469090/java-2d-array-object-cannot-be-resolved-to-a-variable
+---------------------------------------------------------------------------
+5/8
+改變碰撞地圖畫法將3240*1992的jpg檔以16*16分割，
+得:
+6*540/16 = 202個column
+6*332/16 = 124個row
+
+將3240*1992的2為布林陣列轉換為202*124的陣列，以方便除錯。
+----------------------------------------------------------------------------
+5/9
+1個道路兩個target寬
+障礙地圖確定改為26*42
+
+障礙地圖障礙完全排除
+----------------------------------------------------------------------------
+5/10 
+完成npc1繪圖，固定於絕對位置。
+準備其他主修，停工。
+
+--------------------------------------------------
+5/25
+發現java版寶可夢專案
+https://github.com/hydrozoa-yt/pokemon/tree/master
